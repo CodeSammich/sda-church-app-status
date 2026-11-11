@@ -1,31 +1,79 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# The services the church app depends on, checked every 5 minutes.
+# Setup and upkeep: docs/operations/status-page.md in the app's repository,
+# https://github.com/New-York-Chinese-Seventh-day-Adventist/sda-church-app
+owner: New-York-Chinese-Seventh-day-Adventist
+repo: sda-church-app-status
 
+# No check uses a secret. The GitHub App's key is handled by the workflows.
+secrets: []
+
+# The App can't change repository settings or delete issues, and doesn't need to.
+skipDescriptionUpdate: true
+skipTopicsUpdate: true
+skipHomepageUpdate: true
+skipDeleteIssues: true
+
+# Audio files are checked with HEAD: the host answers with the file's headers,
+# never the recording itself. John 3 in each case.
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  - name: Adventist Connect, Mandarin audio
+    slug: adventist-connect-mandarin
+    url: https://assets.adventistconnect.org/newyork2/2026/08/12224153/CUV_B43C003.mp3
+    method: HEAD
+  - name: Adventist Connect, Cantonese audio
+    slug: adventist-connect-cantonese
+    url: https://assets.adventistconnect.org/newyork2/2026/09/30185746/CANTONESE_B43C003.mp3
+    method: HEAD
+  - name: Adventist Connect, Spanish audio
+    slug: adventist-connect-spanish
+    url: https://assets.adventistconnect.org/newyork2/2026/09/30215519/RV1909_B43C003.mp3
+    method: HEAD
+  - name: Internet Archive, Mandarin fallback
+    slug: internet-archive-mandarin
+    url: https://archive.org/download/CUV_201911/CUV_B43C003.mp3
+    method: HEAD
+  - name: Audio Power, Mandarin fallback
+    slug: audio-power-mandarin
+    url: https://theaudiopower.com/CUV/Recordings/%E7%BA%A6%E7%BF%B0%E7%A6%8F%E9%9F%B3%203.mp3
+    method: HEAD
+  - name: HelloAO, English audio
+    slug: helloao-english-audio
+    url: https://audio.bible.helloao.org/api/BSB/JHN/3/audio/souer.mp3
+    method: HEAD
+  # changeovers=1 needs no date and reads no bulletin; client=check keeps it
+  # from counting as an older app.
+  - name: Bulletin API
+    slug: bulletin-api
+    url: https://script.google.com/macros/s/AKfycbzBDlptzh5JpDyAiucJBXO4pQXe2hy2X3DL_1t6NixK-2tV3md_WbyhdDAtCGvGCwzX/exec?changeovers=1&client=check
+    __dangerous__body_down_if_text_missing: '"ok":true'
+  - name: Hymns for Worship, English hymnal
+    slug: hymns-for-worship
+    url: https://hymnsforworship.org/sda-hymnal/the-seventh-day-adventist-hymnal-1985-edition/
+    method: HEAD
+  - name: Chinese hymnal pages
+    slug: chinese-hymnal
+    url: https://m.zgaxr.com/index.php?m=content&c=index&a=lists&catid=59
+    method: HEAD
+  - name: CHTV YouTube feed
+    slug: chtv-youtube-feed
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UC5ucz7CvoYYVULo8Qgl-JdA
+    method: HEAD
+  - name: EGW Writings
+    slug: egw-writings
+    url: https://text.egwwritings.org/
+    method: HEAD
 
+# The dashboard, on GitHub Pages. For status.nyccsda.org later, replace
+# baseUrl with `cname: status.nyccsda.org` (docs/operations/status-page.md).
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  baseUrl: /sda-church-app-status
+  name: Church app status
+  logoUrl: https://new-york-chinese-seventh-day-adventist.github.io/sda-church-app/icon-192x192.png
+  favicon: https://new-york-chinese-seventh-day-adventist.github.io/sda-church-app/icon-48x48.png
+  introTitle: "The services the church app depends on"
+  introMessage: "Checked every 5 minutes: the Bible audio hosts, the bulletin, the hymnals, and the other sites the app opens. An outage opens an issue in this repository and closes it when the service is back."
   navbar:
     - title: Status
-      href: /
+      href: https://new-york-chinese-seventh-day-adventist.github.io/sda-church-app-status/
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
