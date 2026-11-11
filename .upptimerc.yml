@@ -1,4 +1,4 @@
-# The services the church app depends on, checked every 30 minutes.
+# The services the church app depends on, checked every hour.
 # Setup and upkeep: docs/operations/status-page.md in the app's repository,
 # https://github.com/New-York-Chinese-Seventh-day-Adventist/sda-church-app
 owner: New-York-Chinese-Seventh-day-Adventist
@@ -7,11 +7,11 @@ repo: sda-church-app-status
 # No check uses a secret. The GitHub App's key is handled by the workflows.
 secrets: []
 
-# Every 30 minutes, away from the top of the hour, when GitHub is busiest.
-# Upptime's default is every 5 minutes, more than the church needs, and
-# gentler on small hosts and on the bulletin script's execution log.
+# Every hour, at 17 minutes past, away from the top of the hour, when GitHub
+# is busiest. Upptime's default is every 5 minutes, more than the church
+# needs. To check again sooner, run Uptime CI by hand (Actions tab).
 workflowSchedule:
-  uptime: "17,47 * * * *"
+  uptime: "17 * * * *"
 
 # The App can't change repository settings or delete issues, and doesn't need to.
 skipDescriptionUpdate: true
@@ -69,7 +69,7 @@ status-website:
   logoUrl: https://new-york-chinese-seventh-day-adventist.github.io/sda-church-app/icon-192x192.png
   favicon: https://new-york-chinese-seventh-day-adventist.github.io/sda-church-app/icon-48x48.png
   introTitle: "The services the church app depends on"
-  introMessage: "Checked every 30 minutes: the Bible audio hosts, the bulletin, the hymnals, and the other sites the app opens. An outage opens an issue in this repository and closes it when the service is back."
+  introMessage: "Checked every hour: the Bible audio hosts, the bulletin, the hymnals, and the other sites the app opens. An outage opens an issue in this repository and closes it when the service is back."
   navbar:
     - title: Status
       href: https://new-york-chinese-seventh-day-adventist.github.io/sda-church-app-status/
