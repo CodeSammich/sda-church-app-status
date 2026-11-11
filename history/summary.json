@@ -130,18 +130,20 @@
     "url": "https://hymnsforworship.org/sda-hymnal/the-seventh-day-adventist-hymnal-1985-edition/",
     "icon": "https://icons.duckduckgo.com/ip3/hymnsforworship.org.ico",
     "slug": "hymns-for-worship",
-    "status": "up",
-    "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
+    "status": "down",
+    "uptime": "99.73%",
+    "uptimeDay": "99.73%",
+    "uptimeWeek": "99.73%",
+    "uptimeMonth": "99.73%",
+    "uptimeYear": "99.73%",
     "time": 400,
     "timeDay": 400,
     "timeWeek": 400,
     "timeMonth": 400,
     "timeYear": 400,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2026-11-11": 0
+    }
   },
   {
     "name": "Chinese hymnal pages",
