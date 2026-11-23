@@ -52,6 +52,12 @@ sites:
     slug: bulletin-api
     url: https://script.google.com/macros/s/AKfycbzBDlptzh5JpDyAiucJBXO4pQXe2hy2X3DL_1t6NixK-2tV3md_WbyhdDAtCGvGCwzX/exec?changeovers=1&client=check
     __dangerous__body_down_if_text_missing: '"ok":true'
+  # The printed bulletins' Apps Script fetches every verse here when staff
+  # make a bulletin (app issue #771). John 3 in the BSB, as the script reads it.
+  - name: HelloAO, Bible text
+    slug: helloao-bible-text
+    url: https://bible.helloao.org/api/BSB/JHN/3.simple.json
+    __dangerous__body_down_if_text_missing: '"type":"verse"'
   - name: Chinese hymnal pages
     slug: chinese-hymnal
     url: https://m.zgaxr.com/index.php?m=content&c=index&a=lists&catid=59
@@ -69,7 +75,7 @@ status-website:
   logoUrl: https://new-york-chinese-seventh-day-adventist.github.io/sda-church-app/icon-192x192.png
   favicon: https://new-york-chinese-seventh-day-adventist.github.io/sda-church-app/icon-48x48.png
   introTitle: "The services the church app depends on"
-  introMessage: "Checked every hour: the Bible audio hosts, the bulletin, the hymnals, and the other sites the app opens. An outage opens an issue in this repository and closes it when the service is back."
+  introMessage: "Checked every hour: the Bible audio hosts, the Bible text the printed bulletins read, the bulletin, the hymnals, and the other sites the app opens. An outage opens an issue in this repository and closes it when the service is back."
   navbar:
     - title: Status
       href: https://new-york-chinese-seventh-day-adventist.github.io/sda-church-app-status/
