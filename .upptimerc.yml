@@ -22,8 +22,9 @@ skipDeleteIssues: true
 # Audio files are checked with HEAD: the host answers with the file's headers,
 # never the recording itself. John 3 in each case.
 sites:
-  # The app plays both Chinese recordings from HelloAO first, then the
-  # church's copies on Adventist Connect (app issue #749).
+  # The app plays both Chinese recordings and the Spanish one from HelloAO
+  # first, then the church's copies on Adventist Connect (app issues #749
+  # and #770).
   - name: HelloAO, Mandarin audio
     slug: helloao-mandarin-audio
     url: https://audio.bible.helloao.org/api/cmn_cuv/JHN/3/audio/mandarin.mp3
@@ -31,6 +32,10 @@ sites:
   - name: HelloAO, Cantonese audio
     slug: helloao-cantonese-audio
     url: https://audio.bible.helloao.org/api/cmn_cuv/JHN/3/audio/wordproject_cantonese.mp3
+    method: HEAD
+  - name: HelloAO, Spanish audio
+    slug: helloao-spanish-audio
+    url: https://audio.bible.helloao.org/api/spa_r09/JHN/3/audio/wordproject.mp3
     method: HEAD
   - name: Adventist Connect, Mandarin audio
     slug: adventist-connect-mandarin
