@@ -1,4 +1,4 @@
-# The services the church app depends on, checked every hour.
+# The services the church app depends on, checked a few times a day.
 # Setup and upkeep: docs/operations/status-page.md in the app's repository,
 # https://github.com/New-York-Chinese-Seventh-day-Adventist/sda-church-app
 owner: New-York-Chinese-Seventh-day-Adventist
@@ -7,9 +7,11 @@ repo: sda-church-app-status
 # No check uses a secret. The GitHub App's key is handled by the workflows.
 secrets: []
 
-# Every hour, at 17 minutes past, away from the top of the hour, when GitHub
-# is busiest. Upptime's default is every 5 minutes, more than the church
-# needs. To check again sooner, run Uptime CI by hand (Actions tab).
+# Set to every hour, at 17 minutes past, away from the top of the hour, when
+# GitHub is busiest. GitHub usually starts the run hours late, so it checks a
+# few times a day ("How often it checks" in docs/operations/status-page.md).
+# Upptime's default is every 5 minutes, more than the church needs. To check
+# again sooner, run Uptime CI by hand (Actions tab).
 workflowSchedule:
   uptime: "17 * * * *"
 
@@ -82,15 +84,15 @@ sites:
     url: https://text.egwwritings.org/
     method: HEAD
 
-# The dashboard, on GitHub Pages. For status.nyccsda.org later, replace
-# baseUrl with `cname: status.nyccsda.org` (docs/operations/status-page.md).
+# The dashboard, on GitHub Pages. app.nyccsda.org/status leads here through a
+# Cloudflare redirect rule ("The short address" in docs/operations/status-page.md).
 status-website:
   baseUrl: /sda-church-app-status
   name: Church app status
   logoUrl: https://new-york-chinese-seventh-day-adventist.github.io/sda-church-app/icon-192x192.png
   favicon: https://new-york-chinese-seventh-day-adventist.github.io/sda-church-app/icon-48x48.png
   introTitle: "The services the church app depends on"
-  introMessage: "Checked every hour: the Bible audio hosts, the Bible text the printed bulletins read, the bulletin, the hymnals, and the other sites the app opens. An outage opens an issue in this repository and closes it when the service is back."
+  introMessage: "Checked a few times a day: the Bible audio hosts, the Bible text the printed bulletins read, the bulletin, the Chinese hymnal, and the other sites the app opens. An outage opens an issue in this repository and closes it when the service is back."
   navbar:
     - title: Status
       href: https://new-york-chinese-seventh-day-adventist.github.io/sda-church-app-status/
